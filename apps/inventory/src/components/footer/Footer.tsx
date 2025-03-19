@@ -1,5 +1,4 @@
-import React from "react";
-import { footerContainer, footerSection, footerSocialMedia } from "../../assets/styles/footer.css";
+import { footerSection, footerSocialMedia } from "../../assets/styles/footer.css";
 import { sectionContainer } from "../../assets/styles/core.css";
 import facebookIcon from "../../assets/images/facebook-icon.svg";
 import instagramIcon from "../../assets/images/instagram-icon.svg";

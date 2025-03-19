@@ -1,4 +1,3 @@
-import React from "react";
 import { screenContainer, sectionContainer } from "../assets/styles/core.css";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";

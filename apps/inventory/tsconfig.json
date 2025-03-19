@@ -8,8 +8,8 @@
       "path": "./tsconfig.node.json"
     }
   ],
-  "include": [
-    "src",
-    "styled-system"
-  ]
+  //"include": [
+  //  "src",
+  //  "styled-system"
+  //]
 }

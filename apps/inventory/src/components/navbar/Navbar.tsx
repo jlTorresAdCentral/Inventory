@@ -4,8 +4,7 @@ import { Link } from "react-router"
 import { HOME_PATH, RESPONSIVE_PATH } from "../../navigation/navigation-routes-names"
 import burgerIcon from "../../assets/images/burger-icon.svg"
 import logo from "../../assets/images/logo.png"
-import { hideMobile, mobileOnly, sectionContainer, verticalSeparator } from "../../assets/styles/core.css"
-import React from "react"
+import { hideMobile, mobileOnly, sectionContainer } from "../../assets/styles/core.css"
 import { borderButton } from "../../assets/styles/buttons.css"
 
 const Navbar = () => {
