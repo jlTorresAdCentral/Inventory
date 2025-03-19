@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: npx nx build inventory --configuration=production --verbose
         env:
-          BASE_URL: "/tu-repo/"
+          BASE_URL: "/inventory/"
 
 
       - name: Configure Github Pages

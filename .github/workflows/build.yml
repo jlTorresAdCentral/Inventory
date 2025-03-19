@@ -4,12 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
-
-permissions:
-  id-token: write  
-  pages: write     
-  contents: read 
+    pull_request:
 
 jobs:
   deploy:
@@ -27,4 +22,4 @@ jobs:
       - name: Build
         run: npx nx build inventory --configuration=production --verbose
         env:
-          BASE_URL: "/tu-repo/"
+          BASE_URL: "/inventory/"
