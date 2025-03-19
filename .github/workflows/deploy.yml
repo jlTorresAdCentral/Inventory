@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - 'staging-*'
+      - 'prod-*'
+
+permissions:
+  id-token: write  
+  pages: write     
+  contents: read 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npx nx build inventory --configuration=production --verbose
+        env:
+          BASE_URL: "/tu-repo/"
+
+
+      - name: Configure Github Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          dist/apps/inventory
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          environment: github-pages
