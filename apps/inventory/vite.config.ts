@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react'
 const base = process.env.BASE_URL || '/'
 
 export default defineConfig({
-  base: base,
+  base: "/",
   plugins: [react()],
   assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.svg', '**/*.webp', '**/*.gif']
 })
