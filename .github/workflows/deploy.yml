@@ -30,6 +30,9 @@ jobs:
       - name: Configure Github Pages
         uses: actions/configure-pages@v4
 
+      - name: Remove previous artifacts
+        run: rm -rf dist/apps/inventory
+
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
