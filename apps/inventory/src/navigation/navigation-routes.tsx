@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { HOME_PATH, RESPONSIVE_PATH } from "./navigation-routes-names";
+import { DOS_PATH, HOME_PATH, RESPONSIVE_PATH } from "./navigation-routes-names";
 import HomeComponent from "../home/HomeComponent";
 import ResponsiveComponent from "../responsive/ResponsiveComponent";
 
@@ -13,6 +13,11 @@ const NavigationRoutes = () => {
 
             <Route
                 path={RESPONSIVE_PATH}
+                element={<ResponsiveComponent />}
+            />
+
+            <Route
+                path={DOS_PATH}
                 element={<ResponsiveComponent />}
             />
         </Routes>
