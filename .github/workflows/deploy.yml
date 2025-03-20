@@ -25,24 +25,16 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npx nx build inventory --configuration=production --verbose
-        env:
-          BASE_URL: "/Inventory/"
-
+        run: BASE_URL="/Inventory/" npx nx build inventory --configuration=production --verbose
 
       - name: Configure Github Pages
         uses: actions/configure-pages@v4
 
-      - name: Remove previous artifacts
-        run: rm -rf apps/inventory/dist
-
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/inventory/dist
+          path: dist/apps/inventory  # Cambié la ruta para que apunte correctamente a la carpeta de salida
 
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          environment: github-pages
