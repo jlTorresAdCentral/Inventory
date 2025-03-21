@@ -32,16 +32,17 @@ jobs:
           - name: 📥 Clonar repositorio
             uses: actions/checkout@v3
 
-          - name: 🏗️ Configurar Node.js
-            uses: actions/setup-node@v3
-            with:
-              node-version: 18
+          - name: 🔄 Subir archivo base a SimpleLocalize
+            run: |
+              npx simplelocalize upload --api-key=${{ secrets.SIMPLELOCALIZE_API_KEY }} --uploadPath=apps/inventory/locales/en.json
 
-          - name: 📦 Instalar dependencias
-            run: npm install axios
+          - name: 🌍 Generar traducciones
+            run: |
+              npx simplelocalize machine --api-key=${{ secrets.SIMPLELOCALIZE_API_KEY }}
 
-          - name: 🌎 Generar traducciones en todas las apps
-            run: node apps/inventory/scripts/translate.js
+          - name: 📥 Descargar traducciones
+            run: |
+              npx simplelocalize download --api-key=${{ secrets.SIMPLELOCALIZE_API_KEY }} --downloadPath=apps/inventory/
 
           - name: 🚀 Commit de traducciones
             run: |
