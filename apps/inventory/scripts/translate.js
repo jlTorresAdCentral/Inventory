@@ -21,7 +21,7 @@ async function translateText(text, lang) {
 }
 
 async function generateTranslations() {
-    const basePath = "../locales/";
+    const basePath = "apps/inventory/locales/";
     const enFile = `${basePath}en.json`;
 
     if (!fs.existsSync(enFile)) {
