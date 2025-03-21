@@ -1,5 +1,6 @@
-const fs = require("fs");
-const axios = require("axios");
+import fs from "fs";
+import path from "path";
+import axios from "axios"; // Importa axios correctamente
 
 const LANGUAGES = ["es", "it"];
 const API_URL = "https://libretranslate.com/translate";
@@ -20,12 +21,12 @@ async function translateText(text, lang) {
 }
 
 async function generateTranslations() {
-    //const basePath = `./apps/${app}/locales/`;
     const basePath = "../locales/";
     const enFile = `${basePath}en.json`;
 
     if (!fs.existsSync(enFile)) {
         console.warn(`⚠️ No se encontró ${enFile}, saltando...`);
+        return; // Salir si no se encuentra el archivo
     }
 
     const enTexts = JSON.parse(fs.readFileSync(enFile, "utf-8"));
@@ -42,11 +43,10 @@ async function generateTranslations() {
 
         for (const key in enTexts) {
             if (!translations[key]) {
-                translations[key] = await translate(
+                translations[key] = await translateText(
                     enTexts[key],
-                    "es",
                     lang
-                )//translateText(enTexts[key], lang);
+                );
                 hasChanges = true;
             }
         }
@@ -58,19 +58,6 @@ async function generateTranslations() {
             console.log(`👌 Nada nuevo en ${langFile}, no se modificó.`);
         }
     }
-}
-
-async function translate(
-    text,
-    from = "es",
-    to = "en"
-) {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${from}&tl=${to}&dt=t&q=${encodeURIComponent(text)}`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    return data[0].map(item => item[0]).join("");
 }
 
 generateTranslations();
