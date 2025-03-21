@@ -41,7 +41,7 @@ jobs:
             run: npm install axios
 
           - name: 🌎 Generar traducciones en todas las apps
-            run: node scripts/translate.js
+            run: node /apps/inventory/scripts/translate.js
 
           - name: 🚀 Commit de traducciones
             run: |
