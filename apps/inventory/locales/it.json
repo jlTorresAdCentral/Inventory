@@ -1,3 +1,4 @@
 {
-  "hello": "Ciao"
+  "hello": "Ciao",
+  "component": "Component"
 }
