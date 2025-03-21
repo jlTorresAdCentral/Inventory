@@ -13,6 +13,7 @@ async function translateText(text, lang) {
             target: lang,
             format: "text"
         });
+        console.log(`Text translated from:${text} to:${res.data.translatedText}`)
         return res.data.translatedText;
     } catch (error) {
         console.error(`Error traduciendo a ${lang}:`, error);
