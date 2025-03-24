@@ -15,11 +15,10 @@ const HomeComponent = () => {
     return (
         <div className={screenContainer}>
             <Navbar />
-            <h1>{t("hello")}</h1>
+            <h1>{t("home")} {t("component")}</h1>
             <div>
                 <button onClick={() => i18n.changeLanguage("es")}>🇪🇸 Español</button>
                 <button onClick={() => i18n.changeLanguage("en")}>🇺🇸 English</button>
-                <button onClick={() => i18n.changeLanguage("it")}>🇮🇹 Italiano</button>
             </div>
             <Footer />
         </div>
