@@ -12,13 +12,18 @@ const HomeComponent = () => {
         i18n.changeLanguage(savedLang);
     }, [i18n]);
 
+    const changeLanguage = (language: string) => {
+        i18n.changeLanguage(language)
+        console.log("Changing language to: " + language)
+    }
+
     return (
         <div className={screenContainer}>
             <Navbar />
             <h1>{t("home")} {t("component")}</h1>
             <div>
-                <button onClick={() => i18n.changeLanguage("es")}>🇪🇸 Español</button>
-                <button onClick={() => i18n.changeLanguage("en")}>🇺🇸 English</button>
+                <button onClick={() => changeLanguage("es")}>🇪🇸 Español</button>
+                <button onClick={() => changeLanguage("en")}>🇺🇸 English</button>
             </div>
             <Footer />
         </div>
