@@ -1,5 +1,5 @@
 {
-    "hello": "hello",
-    "component": "Component",
-    "home": "Home"
+  "component": "Component",
+  "hello": "hello",
+  "home": "Home"
 }
