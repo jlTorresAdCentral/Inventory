@@ -6,6 +6,9 @@ on:
       - main
     pull_request:
 
+env:
+  cli-version: '2.5.1'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,6 +26,34 @@ jobs:
         run: npx nx build inventory --configuration=production --verbose
         env:
           BASE_URL: "/inventory/"
+
+  translateSimpleLocalize:
+    runs-on: ubuntu-latest
+    steps:    
+      - uses: actions/checkout@v3
+
+      - name: Upload translations
+        uses: simplelocalize/github-action-cli@v3
+        with:
+          api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
+          command: 'upload'
+          cli-version: ${{ env.cli-version }}
+          args: '--uploadPath apps/inventory/locales/en.json --uploadFormat single-language-json'
+
+      - name: Auto-translate project
+        uses: simplelocalize/github-action-cli@v3
+        with:
+          api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
+          command: 'auto-translate'
+          cli-version: ${{ env.cli-version }}
+
+      - name: Download translations
+        uses: simplelocalize/github-action-cli@v3
+        with:
+          api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
+          command: 'download'
+          cli-version: ${{ env.cli-version }}
+          args: '--downloadPath apps/inventory/{lang}.json --downloadFormat single-language-json'
 
   translate:
     runs-on: ubuntu-latest
