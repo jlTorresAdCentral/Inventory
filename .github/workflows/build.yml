@@ -32,6 +32,9 @@ jobs:
           - name: 📥 Clonar repositorio
             uses: actions/checkout@v3
 
+          - name: 📦 Instalar SimpleLocalize CLI
+            run: npm install -g simplelocalize-cli
+
           - name: 🔄 Subir archivo base a SimpleLocalize
             run: |
               npx simplelocalize upload --api-key=${{ secrets.SIMPLELOCALIZE_API_KEY }} --uploadPath=apps/inventory/locales/en.json
