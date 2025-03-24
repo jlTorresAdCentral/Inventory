@@ -54,8 +54,13 @@ jobs:
           api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
           command: 'download'
           cli-version: ${{ env.cli-version }}
-          args: '--downloadPath apps/inventory/{lang}.json --downloadFormat single-language-json'
+          args: '--downloadPath apps/inventory/locales/{lang}.json --downloadFormat single-language-json'
       
+      - name: Verificar archivos descargados
+        run: |
+          echo "Archivos descargados en el directorio:"
+          ls -la apps/inventory/locales/
+
       - name: 🚀 Commit de traducciones
         run: |
           git config --global user.name "GitHub Actions"
