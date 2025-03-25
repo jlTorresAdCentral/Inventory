@@ -41,7 +41,19 @@ jobs:
           cli-version: ${{ env.cli-version }}
           args: '--uploadPath apps/inventory/locales/en.json --uploadFormat single-language-json --languageKey en'
 
+      - name: Check if translation keys changed
+        id: check_translations
+        run: |
+          git fetch origin main
+          if git diff --quiet origin/main -- apps/inventory/locales/en.json; then
+            echo "No new keys found, skipping auto-translate."
+            echo "RUN_TRANSLATION=false" >> $GITHUB_ENV
+          else
+            echo "New keys detected, running auto-translate."
+            echo "RUN_TRANSLATION=true" >> $GITHUB_ENV    
+
       - name: Auto-translate project
+        if: env.RUN_TRANSLATION == 'true'
         uses: simplelocalize/github-action-cli@v3
         with:
           api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
