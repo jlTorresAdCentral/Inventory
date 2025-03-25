@@ -64,6 +64,7 @@ jobs:
           cli-version: ${{ env.cli-version }}
 
       - name: Download translations
+        if: env.RUN_TRANSLATION == 'true'
         uses: simplelocalize/github-action-cli@v3
         with:
           api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
