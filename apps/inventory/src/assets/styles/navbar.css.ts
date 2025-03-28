@@ -1,7 +1,6 @@
 import { css } from "../../../styled-system/css"
 
 export const navbarSection = css({
-    background: "#3543dc",
     position: "relative",
     boxSizing: "border-box",
     height: "60px",
@@ -9,7 +8,7 @@ export const navbarSection = css({
     md: {
         height: "80px",
     },
-    display: "flex"
+    display: "flex",
 })
 
 export const navbarContainer = css({
@@ -18,6 +17,9 @@ export const navbarContainer = css({
     alignItems: "center",
     columnGap: "20px",
     justifyContent: "space-between",
+    position: "relative",
+    padding: "10px 5px",
+    borderBottom: "1px solid var(--divider-color)",
 })
 
 export const navbarLogo = css({
@@ -48,4 +50,70 @@ export const navbarOptions = css({
         padding: '0 8px',
         color: 'gray',
     },
+})
+
+export const asideNavScreen = css({
+    background: "rgba(0, 0, 0, 0.5)",
+    position: "fixed",
+    top: "0",
+    left: "0",
+    height: "100vh",
+    width: "100vw",
+    zIndex: "1000",
+    display: "flex",
+    transition: "opacity 0.3s ease-in-out"
+})
+
+export const asideNavContainer = css({
+    position: 'absolute',
+    top: 0,
+    left: "0", // Se mueve hacia afuera cuando está cerrado
+    width: '300px',
+    height: '100vh',
+    bg: 'white',
+    p: 6,
+    boxShadow: 'lg',
+    transition: 'left 0.3s ease-in-out', // Animación con solo CSS
+    background: "var(--adcentral-purple)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+})
+
+export const asideNavbarLogo = css({
+    marginTop: "20px",
+    width: "150px"
+})
+
+export const storeNavbarContainer = css({
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    columnGap: "20px",
+    color: "var(--adcentral-black-color)"
+})
+
+export const storeNavbar = css({
+    display: "flex",
+    flexDirection: "column",
+    "& p": {
+        "&:nth-child(1)": {
+            fontSize: "16px",
+            lineHeight: "12px",
+        },
+        "&:nth-child(2)": {
+            fontSize: "14px",
+        }
+    }
+})
+
+export const navbarOption = css({
+    color: "var(--adcentral-black-color)",
+    fontSize: "20px",
+    md: {
+        cursor: "pointer",
+        _hover: {
+            color: "var(--adcentral-purple)",
+        }
+    }
 })

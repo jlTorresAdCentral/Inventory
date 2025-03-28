@@ -1,1 +1,54 @@
 @layer reset, base, tokens, recipes, utilities;
+
+@layer base {
+    :root {
+        --primary-background: "#f5f5fb";
+        --background_color: #ffffff;
+        --adcentral-black-color: #434343;
+        --adcentral-gray-color: #777777;
+        --divider-color: #C4C4C4;
+        --adcentral-white-color: #ffffff;
+
+        /* Colors */
+        --adcentral-purple: #626FF5;
+        --adcentral-purple-on-surface: "#ffffff";
+        --adcentral-purple-hover: "#F4D57C0";
+
+        --cellairis-red: #f9423a;
+        --cellairis-white: #ffffff;
+        --cellairis-black: #0d0d0d;
+        --cellairis-gray-1: #cccccc;
+        --cellairis-gray-2: #8a8a8a;
+        --cellairis-gray-3: #676767;
+
+        /* Buttons */
+        --cellairis-btn-red-bg: var(--cellairis-red);
+        --cellairis-btn-red-hover-bg: var(--cellairis-red);
+        --cellairis-btn-red-active-bg: #d7362f;
+        --cellairis-btn-red-disabled-bg: #ffc0bd;
+
+        --cellairis-btn-white-bg: var(--cellairis-white);
+        --cellairis-btn-white-hover-bg: var(--cellairis-white);
+        --cellairis-btn-white-active-bg: #f3f3f3;
+        --cellairis-btn-white-disabled-bg: var(--cellairis-white);
+
+        --cellairis-btn-black-bg: var(--cellairis-black);
+        --cellairis-btn-black-hover-bg: var(--cellairis-black);
+        --cellairis-btn-black-active-bg: #270101;
+        --cellairis-btn-black-disabled-bg: var(--cellairis-gray-1);
+
+        /* Links buttons */
+        --cellairis-link-black-color: var(--cellairis-white);
+        --cellairis-link-white-color: var(--cellairis-black);
+        --cellairis-link-gray-color: var(--cellairis-gray-3);
+    }
+}
+
+html,
+body {
+    font-family: "Archivo", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-background);
+    color: #ffffff;
+}

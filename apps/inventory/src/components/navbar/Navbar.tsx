@@ -1,66 +1,60 @@
 import { useState } from "react"
-import { navbarContainer, navbarLogo, navbarMobileOptions, navbarOptions, navbarSection } from "../../assets/styles/navbar.css"
-import { Link } from "react-router"
-import { HOME_PATH, RESPONSIVE_PATH } from "../../navigation/navigation-routes-names"
-import burgerIcon from "../../assets/images/burger-icon.svg"
+import { navbarContainer, navbarLogo, navbarOption, navbarSection, storeNavbar, storeNavbarContainer } from "../../assets/styles/navbar.css"
 import logo from "../../assets/images/logo.png"
-import { hideMobile, mobileOnly, sectionContainer } from "../../assets/styles/core.css"
-import { borderButton } from "../../assets/styles/buttons.css"
+import { hideMobile, sectionContainer } from "../../assets/styles/core.css"
+import AsideNavbar from "./AsideNavbar"
+import SettingsComponent from "./components/settings.component"
 
 const Navbar = () => {
-    const [openMenu, setOpenMenu] = useState(false)
+    const [openSettings, setOpenSettings] = useState(false)
+    const [openSideNavbar, setOpenSideNavbar] = useState(false)
 
     const handleBurgerMenu = () => {
-        setOpenMenu((prev) => !prev)
+        setOpenSettings((prev) => !prev)
+    }
+
+    const handleSideNavbar = () => {
+        setOpenSideNavbar((prev) => !prev)
     }
 
     return (
         <nav className={navbarSection}>
             <div className={[navbarContainer, sectionContainer].join(" ")}>
-                <Link to={HOME_PATH}>
+                <div
+                    className={navbarOption}
+                    onClick={() => handleSideNavbar()}
+                >
+                    <p>Menu</p>
+                </div>
+
+                <div className={storeNavbarContainer}>
                     <img
                         src={logo}
-                        alt="Logo"
+                        alt="store logo"
                         className={navbarLogo}
                     />
-                </Link>
-
-                <div className={[navbarOptions, hideMobile].join(" ")}>
-                    <Link
-                        to={HOME_PATH}
-                    >
-                        Home
-                    </Link>
-
-                    <Link
-                        to={RESPONSIVE_PATH}
-                    >
-                        Responsive
-                    </Link>
+                    <div className={[storeNavbar, hideMobile].join(" ")}>
+                        <p>Torres Dev Store</p>
+                        <p>Jose Luis T.</p>
+                    </div>
                 </div>
 
-                <button
-                    className={[borderButton, hideMobile].join(" ")}
-                    onClick={() => {
-                        console.log("On login")
-                    }}
-                >
-                    Login
-                </button>
-
-                <img
-                    alt="Menu Icon"
-                    className={mobileOnly}
-                    src={burgerIcon}
+                <div
+                    className={navbarOption}
                     onClick={() => handleBurgerMenu()}
-                />
+                >
+                    <p>Settings</p>
+                </div>
+
+                {openSettings && (
+                    <SettingsComponent />
+                )}
             </div>
 
-            {openMenu && (
-                <div className={[mobileOnly, navbarMobileOptions].join(" ")}>
-                    <Link to={HOME_PATH}>Home</Link>
-                    <Link to={RESPONSIVE_PATH}>Responsive</Link>
-                </div>
+            {openSideNavbar && (
+                <AsideNavbar
+                    onSelectOption={handleSideNavbar}
+                />
             )}
         </nav>
     )
