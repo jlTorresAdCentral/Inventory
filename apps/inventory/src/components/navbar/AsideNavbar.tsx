@@ -1,4 +1,4 @@
-import { asideNavbarLogo, asideNavContainer, asideNavScreen, navbarLogo } from "../../assets/styles/navbar.css";
+import { asideNavbarLogo, asideNavContainer, asideNavScreen } from "../../assets/styles/navbar.css";
 import adCentralLogo from "../../assets/images/logo.png"
 import { Link } from "react-router";
 import { HOME_PATH } from "../../navigation/navigation-routes-names";

@@ -1,7 +1,5 @@
-import { useTranslation } from "react-i18next";
 import { purpleBadge, screenContainer, screenFooter, sectionAllHeight, sectionContainer } from "../assets/styles/core.css";
 import Navbar from "../components/navbar/Navbar";
-import { useEffect } from "react";
 import ScreenHeaderComponent from "../components/screen.header.component";
 import TableToolbarComponent from "../components/table/table-toolbar.component";
 import { headerToolbarSpacer, tableVerticalSpacer } from "../assets/styles/home.css";
@@ -212,17 +210,6 @@ const HomeComponent = () => {
         ["cable inalambrico 199 mts", "SKU-AEDS199", "VE199", "Devices/Cases", "209", "199", "10", "Yes", "$ 199.00", "$ 212"],
         ["cable inalambrico 200 mts", "SKU-AEDS200", "VE200", "Devices/Cases", "210", "200", "10", "No", "$ 200.00", "$ 213"],
     ]
-    const { t, i18n } = useTranslation()
-
-    useEffect(() => {
-        const savedLang = localStorage.getItem("language") || "en";
-        i18n.changeLanguage(savedLang);
-    }, [i18n]);
-
-    const changeLanguage = (language: string) => {
-        i18n.changeLanguage(language)
-        console.log("Changing language to: " + language)
-    }
 
     const onSearchChange = (search: string) => {
         console.log("JL - Buscando: " + search)
