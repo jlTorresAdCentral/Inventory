@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next";
 import { navbarContainer, navbarLogo, navbarOption, navbarSection, storeNavbar, storeNavbarContainer } from "../../assets/styles/navbar.css"
-import logo from "../../assets/images/logo.png"
 import { hideMobile, sectionContainer } from "../../assets/styles/core.css"
 import AsideNavbar from "./AsideNavbar"
 import SettingsComponent from "./components/settings.component"
 
 const Navbar = () => {
-    const { t, i18n } = useTranslation()
+    const { i18n } = useTranslation()
 
     useEffect(() => {
         const savedLang = localStorage.getItem("language") || "en";

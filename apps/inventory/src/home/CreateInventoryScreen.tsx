@@ -11,7 +11,7 @@ import TextareaComponent from "../components/textarea.component";
 const CreateInventoryScreen = () => {
     const [sellingPrice, setSellingPrice] = useState("")
     const [cost, setCost] = useState("")
-    const [lastPurchasedPrice, setLastPurchasedPrice] = useState("")
+    //const [lastPurchasedPrice, setLastPurchasedPrice] = useState("")
     const [averageCost, setAverageCost] = useState("")
     const [taxable, setTaxable] = useState(false)
     const { t } = useTranslation()
@@ -19,8 +19,8 @@ const CreateInventoryScreen = () => {
     const [description, setDescription] = useState("")
     const [adCentralSku, setAdCentralSku] = useState("")
     const [itemAsService, setItemAsService] = useState(false)
-    const [collection, setCollection] = useState("")
-    const [trackQuantity, setTrackQuantity] = useState("")
+    //const [collection, setCollection] = useState("")
+    //const [trackQuantity, setTrackQuantity] = useState("")
 
     return (
         <div className={screenContainer}>
@@ -123,7 +123,7 @@ const CreateInventoryScreen = () => {
                                 <p>$</p>
                             }
                             value={averageCost}
-                            onTextChange={() => { }}
+                            onTextChange={(value) => setAverageCost(value)}
                         />
 
                         <InputComponent
