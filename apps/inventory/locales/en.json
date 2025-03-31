@@ -23,5 +23,6 @@
   "item_as_service_description": "If this option is selected, the template will match services-based data, rather than inventory data.",
   "track_quantity": "Track quantity",
   "available": "Available",
-  "continue_selling": "Continue selling when out of stock"
+  "continue_selling": "Continue selling when out of stock",
+  "add_vendor": "Add Vendor"
 }
