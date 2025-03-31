@@ -4,7 +4,7 @@ import SearchbarComponent from "./searchbar.component"
 interface ScreenHeaderComponentProps {
     title: string
     subtitle: string
-    onSearchChange: (search: string) => void
+    onSearchChange: ((search: string) => void) | null
 }
 
 const ScreenHeaderComponent = (props: ScreenHeaderComponentProps) => {
@@ -15,10 +15,12 @@ const ScreenHeaderComponent = (props: ScreenHeaderComponentProps) => {
                 <h2>{props.subtitle}</h2>
             </div>
 
-            <SearchbarComponent
-                placeholder={"Search for any item on your inventory..."}
-                onSearchChange={props.onSearchChange}
-            />
+            {props.onSearchChange != null && (
+                <SearchbarComponent
+                    placeholder={"Search for any item on your inventory..."}
+                    onSearchChange={props.onSearchChange}
+                />
+            )}
         </div>
     )
 }

@@ -13,7 +13,7 @@ export const tableContainer = css({
         background: "var(--adcentral-gray-color)",
         marginBottom: "5px",
         padding: "0px 5px",
-        color: "var(--adcentral-black-color)"
+        color: "var(--adcentral-white-color)"
     },
     "& tr": {
         height: "50px",

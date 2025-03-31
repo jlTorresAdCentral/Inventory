@@ -3,7 +3,7 @@ import { css } from "../../../styled-system/css"
 export const settingsContainer = css({
     position: "absolute",
     zIndex: "20",
-    top: "50px",
+    top: "60px",
     right: "0px",
     borderRadius: "20px",
     border: "1px solid #E0E0E0",

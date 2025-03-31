@@ -1,5 +1,27 @@
 {
   "component": "Component",
   "hello": "hello",
-  "home": "Home"
+  "home": "Home",
+  "create_item": "Create item",
+  "add_inventory_item": "Add a new item to your inventory",
+  "details": "Details",
+  "stock": "Stock",
+  "vendors": "Vendors",
+  "pricing": "Pricing",
+  "selling_pricing": "Selling Price",
+  "cost": "Cost",
+  "average_cost": "Average Cost",
+  "last_purchased_price": "Last purchased price",
+  "charge_tax_on_item": "Charge tax on this item",
+  "item_name": "Item Name",
+  "type_item_name": "Type item name",
+  "product_description": "Type description here...",
+  "adcentral_sku": "AdCentral SKU",
+  "type_sku": "Type SKU",
+  "list_as_service": "List as a Service",
+  "mark_item_as_service": "Mark this item as a service",
+  "item_as_service_description": "If this option is selected, the template will match services-based data, rather than inventory data.",
+  "track_quantity": "Track quantity",
+  "available": "Available",
+  "continue_selling": "Continue selling when out of stock"
 }

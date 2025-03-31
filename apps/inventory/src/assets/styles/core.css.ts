@@ -64,6 +64,7 @@ export const screenFooter = css({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    borderTop: "1px solid var(--divider-color)",
     md: {
         flexDirection: "row",
         justifyContent: "space-between",

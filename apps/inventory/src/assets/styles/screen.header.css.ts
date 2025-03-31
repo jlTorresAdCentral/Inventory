@@ -10,6 +10,7 @@ export const screenHeaderContainer = css({
         flexDirection: "row",
         columnGap: "20px",
         justifyContent: "space-between",
+        textAlign: "left"
     }
 })
 

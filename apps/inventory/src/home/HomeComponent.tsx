@@ -5,8 +5,12 @@ import TableToolbarComponent from "../components/table/table-toolbar.component";
 import { headerToolbarSpacer, tableVerticalSpacer } from "../assets/styles/home.css";
 import FilterComponent from "../components/filter.component";
 import TableComponent from "../components/table/table.component";
+import { useNavigate } from "react-router";
+import { INVENTORY_CREATE } from "../navigation/navigation-routes-names";
 
 const HomeComponent = () => {
+    const navigate = useNavigate()
+
     const columna = ["Item Name", "AdCentral SKU", "Vendor SKU", "Collection", "Available", "Commited", "Total", "Taxable", "Cost", "Selling Price"]
     const filas = [
         ["cable inalambrico 1 mts", "SKU-AEDS1", "VE1", "Devices/Cases", "11", "1", "10", "No", "$ 1.00", "$ 14"],
@@ -231,7 +235,7 @@ const HomeComponent = () => {
                     onRefresh={() => { }}
                     onDownload={() => { }}
                     onExport={() => { }}
-                    onAdd={() => { }}
+                    onAdd={() => navigate(INVENTORY_CREATE)}
                     filters={[
                         <FilterComponent
                             items={["Paid", "Not Paid"]}

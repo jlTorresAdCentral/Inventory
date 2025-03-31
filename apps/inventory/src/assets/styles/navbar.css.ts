@@ -12,6 +12,7 @@ export const navbarSection = css({
 })
 
 export const navbarContainer = css({
+    background: "#f2f2f2",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -115,5 +116,43 @@ export const navbarOption = css({
         _hover: {
             color: "var(--adcentral-purple)",
         }
+    }
+})
+
+export const asideNavbarOptions = css({
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "15px",
+    marginTop: "50px",
+    width: "100%",
+})
+
+export const asideNavbarOption = css({
+    display: "flex",
+    flexDirection: "row",
+    columnGap: "10px",
+    cursor: "pointer",
+    height: "30px",
+    width: "100%",
+    "& p": {
+        color: "var(--adcentral-white-color)"
+    },
+    "& svg": {
+        height: "24px",
+        width: "24px"
+    },
+    md: {
+        cursor: "pointer",
+    }
+})
+
+export const asideNavbarSubOption = css({
+    cursor: "pointer",
+    color: "var(--adcentral-white-color)",
+    paddingLeft: "40px",
+    height: "20px",
+    width: "100%",
+    md: {
+        cursor: "pointer",
     }
 })
