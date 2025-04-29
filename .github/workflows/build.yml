@@ -30,24 +30,25 @@ jobs:
     needs: build
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
     - name: Install Git (required for diff)
       run: sudo apt-get install git -y
 
-    - name: Check if en.json changed
+    - name: Check if en.json changed compared to main
       id: check_translations
       run: |
-        # Verificar si hay cambios locales no comiteados en en.json
         git fetch origin main
 
-        if git diff --name-only origin/main...HEAD | grep 'apps/adcentral-pos-ui/locales/en.json' > /dev/null || git status --porcelain | grep 'apps/adcentral-pos-ui/locales/en.json' > /dev/null; then
-          echo "Local or staged changes detected on en.json, executing upload and auto-translate."
+        if git diff origin/main -- apps/adcentral-pos-ui/locales/en.json | grep .; then
+          echo "Changes detected on en.json compared to origin/main"
           echo "RUN_TRANSLATION=true" >> $GITHUB_ENV
         else
-          echo "No changes on en.json, skipping upload and auto-translate."
+          echo "No changes on en.json compared to origin/main"
           echo "RUN_TRANSLATION=false" >> $GITHUB_ENV
         fi
-
+        
     - name: Upload translations
       if: env.RUN_TRANSLATION == 'true'
       uses: simplelocalize/github-action-cli@v3
