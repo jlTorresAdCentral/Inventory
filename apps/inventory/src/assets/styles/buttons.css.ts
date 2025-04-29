@@ -16,7 +16,6 @@ export const tableButton = css({
     color: "var(--adcentral-white-color)",
     background: "var(--adcentral-purple)",
     minWidth: "250px",
-    cursor: "initial",
     md: {
         cursor: "pointer",
         _hover: {
