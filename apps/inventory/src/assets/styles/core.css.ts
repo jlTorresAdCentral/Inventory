@@ -55,12 +55,18 @@ export const iconSelect = css({
 })
 
 export const screenFooter = css({
-    height: "60px",
+    position: "fixed",
+    bottom: "0",
+    left: "50%",
+    transform: "translateX(-50%)",
     width: "100%",
-    padding: "10px 20px",
-    boxSizing: "border-box",
     background: "#f2f2f2",
-    marginTop: "auto",
+    padding: "10px 20px",
+    minHeight: "60px",
+    maxWidth: "1280px",
+    marginTop: "200px",
+    height: "60px",
+    boxSizing: "border-box",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -85,4 +91,16 @@ export const purpleBadge = css({
         fontWeight: "500",
         color: "var(--adcentral-white-color)",
     }
+})
+
+export const footerFijo = css({
+    position: "fixed",
+    //    position: fixed;
+    bottom: "0",
+    left: "0",
+    width: "100%",
+    background: "#6200ea",
+    color: "white",
+    textAlign: "center",
+    padding: "10px"
 })
