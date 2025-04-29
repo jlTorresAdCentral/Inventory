@@ -24,5 +24,6 @@
   "track_quantity": "Track quantity",
   "type_item_name": "Type item name",
   "type_sku": "Type SKU",
-  "vendors": "Vendors"
+  "vendors": "Vendors",
+  "only": "Only"
 }
