@@ -24,5 +24,16 @@
   "track_quantity": "Track quantity",
   "type_item_name": "Type item name",
   "type_sku": "Type SKU",
-  "vendors": "Vendors"
+  "vendors": "Vendors",
+  "collection": "Collection",
+  "no_vendors_registered": "No vendors registered",
+  "register_first_vendor": "Click here to register your first vendor",
+  "vendor_name": "Vendor Name",
+  "search_vendor": "Search for a vendor or create one...",
+  "vendor_sku": "Vendor SKU",
+  "product_link": "Product Link",
+  "type_product_link": "Type product link",
+  "cancel": "Cancel",
+  "save": "Save",
+  "back": "Back"
 }
