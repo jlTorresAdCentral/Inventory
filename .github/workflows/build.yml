@@ -37,12 +37,15 @@ jobs:
     - name: Check if en.json changed
       id: check_translations
       run: |
-        if git diff --exit-code apps/adcentral-pos-ui/locales/en.json > /dev/null; then
-          echo "No local changes on en.json, skipping upload and auto-translate."
-          echo "RUN_TRANSLATION=false" >> $GITHUB_ENV
-        else
-          echo "Local changes detected on en.json, executing upload and auto-translate."
+        # Verificar si hay cambios locales no comiteados en en.json
+        git fetch origin main
+
+        if git diff --name-only origin/main...HEAD | grep 'apps/adcentral-pos-ui/locales/en.json' > /dev/null || git status --porcelain | grep 'apps/adcentral-pos-ui/locales/en.json' > /dev/null; then
+          echo "Local or staged changes detected on en.json, executing upload and auto-translate."
           echo "RUN_TRANSLATION=true" >> $GITHUB_ENV
+        else
+          echo "No changes on en.json, skipping upload and auto-translate."
+          echo "RUN_TRANSLATION=false" >> $GITHUB_ENV
         fi
 
     - name: Upload translations
