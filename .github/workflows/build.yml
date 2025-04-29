@@ -85,4 +85,72 @@ jobs:
           else
             git commit -m "auto translate"
             git push
+ translate:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check if translation keys changed
+        id: check_translations
+        run: |
+          git fetch origin main
+          if git diff --exit-code origin/main -- apps/adcentral-pos-ui/locales/en.json > /dev/null; then
+            echo "No changes on en.json, skipping auto-translate."
+            echo "RUN_TRANSLATION=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected on en.json, executing auto-translate."
+            echo "RUN_TRANSLATION=true" >> $GITHUB_ENV
           fi
+
+      - name: Upload base translation
+        if: env.RUN_TRANSLATION == 'true'
+        uses: simplelocalize/github-action-cli@v3
+        with:
+          api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
+          command: 'upload'
+          cli-version: ${{ env.cli-version }}
+          args: '--uploadPath apps/adcentral-pos-ui/locales/en.json --uploadFormat single-language-json --languageKey en'
+
+      - name: Auto-translate
+        if: env.RUN_TRANSLATION == 'true'
+        uses: simplelocalize/github-action-cli@v3
+        with:
+          api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
+          command: 'auto-translate'
+          cli-version: ${{ env.cli-version }}
+
+      - name: Backup current locales
+        run: |
+          mkdir -p /tmp/locales-backup
+          cp apps/adcentral-pos-ui/locales/*.json /tmp/locales-backup/
+
+      - name: Download translations (always)
+        uses: simplelocalize/github-action-cli@v3
+        with:
+          api-key: ${{ secrets.SIMPLELOCALIZE_API_KEY }}
+          command: 'download'
+          cli-version: ${{ env.cli-version }}
+          args: '--downloadPath apps/adcentral-pos-ui/locales/{lang}.json --downloadFormat single-language-json'
+
+      - name: Check if downloaded translations differ
+        id: check_diff
+        run: |
+          if diff -r apps/adcentral-pos-ui/locales /tmp/locales-backup/ > /dev/null; then
+            echo "No translation file changes after download."
+            echo "HAS_CHANGES=false" >> $GITHUB_ENV
+          else
+            echo "Downloaded translations differ from current ones."
+            echo "HAS_CHANGES=true" >> $GITHUB_ENV
+          fi
+
+      - name: Commit translations
+        if: env.HAS_CHANGES == 'true'
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+              
+          git add apps/**/locales/*.json
+
+          git commit -m "auto translate"
+          git push
