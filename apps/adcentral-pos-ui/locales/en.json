@@ -17,15 +17,15 @@
   "last_purchased_price": "Last purchased price",
   "list_as_service": "List as a Service",
   "mark_item_as_service": "Mark this item as a service",
+  "only": "Only",
   "pricing": "Pricing",
   "product_description": "Type description here...",
   "selling_pricing": "Selling Price",
   "stock": "Stock",
+  "test": "Test",
   "track_quantity": "Track quantity",
   "type_item_name": "Type item name",
   "type_sku": "Type SKU",
-  "vendors": "Vendors",
-  "only": "Only",
-  "test": "Test",
-  "user": "user"
+  "user": "user",
+  "vendors": "Vendors"
 }

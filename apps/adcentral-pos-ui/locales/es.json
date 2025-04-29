@@ -17,12 +17,15 @@
   "last_purchased_price": "Último precio de compra",
   "list_as_service": "Lista como servicio",
   "mark_item_as_service": "Marcar este artículo como servicio",
+  "only": "Solo",
   "pricing": "Precios",
   "product_description": "Escriba la descripción aquí...",
   "selling_pricing": "Precio de venta",
   "stock": "Existencias",
+  "test": "Prueba",
   "track_quantity": "Cantidad de seguimiento",
   "type_item_name": "Escriba el nombre del elemento",
   "type_sku": "Tipo SKU",
+  "user": "usuario",
   "vendors": "Vendedores"
 }
