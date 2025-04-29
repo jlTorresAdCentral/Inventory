@@ -1,6 +1,6 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { footerFijo, purpleBadge, screenContainer, screenFooter, sectionAllHeight, sectionContainer } from "../assets/styles/core.css";
+import { screenContainer, screenFooter, sectionAllHeight, sectionContainer } from "../assets/styles/core.css";
 import Navbar from "../components/navbar/Navbar";
 import ScreenHeaderComponent from "../components/screen.header.component";
 import InputComponent from "../components/input.component";

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import SearchbarComponent from "./searchbar.component"
-import { dropdownContainer, dropdownInputContainer, dropdownItem, dropdownItemsContainer, dropdownPlaceholder } from "../assets/styles/dropdown.css"
+import { dropdownContainer, dropdownInputContainer, dropdownItem, dropdownItemsContainer } from "../assets/styles/dropdown.css"
 
 interface DropdownProps {
     items: string[]
