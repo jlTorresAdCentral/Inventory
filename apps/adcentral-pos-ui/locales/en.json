@@ -26,5 +26,6 @@
   "type_sku": "Type SKU",
   "vendors": "Vendors",
   "only": "Only",
-  "test": "Test"
+  "test": "Test",
+  "user": "user"
 }
