@@ -6,11 +6,13 @@ export const screenHeaderContainer = css({
     alignItems: "center",
     rowGap: "30px",
     textAlign: "center",
+    margin: "10px 0px",
     md: {
         flexDirection: "row",
         columnGap: "20px",
         justifyContent: "space-between",
-        textAlign: "left"
+        textAlign: "left",
+        margin: "0px",
     }
 })
 
